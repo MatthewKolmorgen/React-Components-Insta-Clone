@@ -16,7 +16,7 @@ import './App.css';
 const App = () => {
   // X Create a state called `posts` to hold the array of post objects, **initializing to dummyData**.
   // X This state is the source of truth for the data inside the app. You won't be needing dummyData anymore.
-  // X [Come back if there's time]To make the search bar work (which is stretch) we'd need another state to hold the search term.
+  //  [Come back if there's time]To make the search bar work (which is stretch) we'd need another state to hold the search term.
   const [posts, setPosts] = useState(dummyData)
   // const [search, setSearch] = useState(SearchBar)
 
@@ -32,15 +32,14 @@ const App = () => {
         X - if the `id` of the post matches `postId`, return a new post object with the desired values (use the spread operator).
         X- otherwise just return the post object unchanged.
      */
-  setPosts(
-    posts.map(post => {
-      if(post.id === postId){
-        post.likes = post.likes+1;
-      } 
-      return post;
-    })
-  )
-
+    setPosts(
+      posts.map(post => {
+        if(post.id === postId) {
+          return{... post, likes : post.likes +1}
+        }
+        return post
+      })
+    )
   };
 
   return (
